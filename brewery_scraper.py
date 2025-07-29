@@ -47,17 +47,17 @@ def scroll_until_bottom(driver):
 	old_height = 0
 	new_height = 1
 	while new_height != old_height:
-		old_height, new_height = scroll_down(driver)
+		old_height = new_height
+		new_height = scroll_down(driver)
 		print(new_height)
 
 def scroll_down(driver, pause=.5):
-	# scrolls down and return (old_height, new_height)
-	h0 = driver.execute_script("return document.body.scrollHeight")
+	# scrolls down and returns new scroll height
 	for _ in range(driver.get_window_size()['height']):
-		driver.find_element(By.XPATH, '//body').send_keys(Keys.DOWN)		
+		driver.find_element(By.XPATH, '//body').send_keys(Keys.DOWN)
 	
 	time.sleep(pause)
-	return (h0, driver.execute_script("return document.body.scrollHeight"))
+	return driver.execute_script("return document.body.scrollHeight")
 
 def scrape_content(driver):
 	# scrape visible content
@@ -69,7 +69,7 @@ def create_entry(tag):
 	return list(map(lambda x: get_property(tag, x), ENTRY_XPATHS))
 
 def get_property(tag, xpath):
-	# extractss text from propetry but returns '' if not found
+	# extracts text from propetry but returns '' if not found
 	try:
 		return tag.find_element(By.XPATH, xpath).text
 	except NoSuchElementException:
