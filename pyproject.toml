@@ -1,0 +1,18 @@
+[project]
+name = "brewery-scraper"
+version = "1.0.0"
+description = "Scrapes addresses from Brewer's Association directory"
+authors = [
+    {name = "Jordan Porter",email = "tunasplam@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "selenium (>=4.34.2,<5.0.0)",
+    "webdriver-manager (>=4.0.2,<5.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
