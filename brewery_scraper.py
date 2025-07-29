@@ -1,22 +1,6 @@
 """
-This site consists of one page with an infinite scroll. Scroll down to the very
-bottom to reveal all tags and then scrape
-
-Instructions on getting chrome driver setup. maybe make install.sh?
-
-Get driver
-wget -N http://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip'
-unzip chromedriver_linux64.zip
-sudo chmod +x chromedriver
-sudo mv -f chromedriver /usr/local/share/chromedriver
-sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
-sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
-
-Download chrome
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
-sudo apt-get update 
-sudo apt-get install google-chrome-stable
+The site consists of one page with an infinite scroll.
+Scroll down to the very bottom to reveal all tags and then scrape
 """
 
 import csv
